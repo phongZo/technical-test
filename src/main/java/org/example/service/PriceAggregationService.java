@@ -32,6 +32,10 @@ public class PriceAggregationService {
         this.bestPriceRepository = bestPriceRepository;
     }
 
+    public List<BestPrice> getLatestPrices() {
+        return bestPriceRepository.findAll();
+    }
+
     public void aggregateAndStore() {
         // symbol -> {bestBid, bestAsk}
         Map<String, BigDecimal[]> aggregated = new HashMap<>();
